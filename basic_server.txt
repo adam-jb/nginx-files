@@ -1,0 +1,20 @@
+
+# store in /etc/nginx/sites-enabled/[website-name]
+
+
+
+# Configure a virtual server with a 'server block'
+server {
+	listen 80;    # port the server will respond to
+	servername [host machine ip address]
+
+	# where it will look for handling requests
+	location / {
+		proxy_pass http://localhost:8000;
+		include /etc/nginx/proxy_params;
+		proxy_redirect off;
+	}
+
+}
+
+
